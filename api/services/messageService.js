@@ -5,7 +5,7 @@ var Promise = require('bluebird');
 var ForbiddenError = require('../errors/ForbiddenError');
 var InvalidInputError = require('../errors/InvalidInputError');
 
-module.exports.createMessage = function (roomMember, text) {
+module.exports.createMessage = function (roomMember, text, ip) {
 
 	text = ent.encode(text);
 
@@ -55,7 +55,7 @@ module.exports.createMessage = function (roomMember, text) {
 		return imageSearch(roomMember, text);
 	}
 	else if (/^\/gif\s+/i.test(text)){
-		return gifSearch(roomMember, text);
+		return gifSearch(roomMember, text, ip);
 	}
 	else {
 		return message(roomMember, text, 'standard');
@@ -386,11 +386,11 @@ function imageSearch(roomMember, text) {
 		});
 }
 
-function gifSearch(roomMember, text) {
+function gifSearch(roomMember, text, ip) {
 	var match = /^\/gif\s+(.*)$/i.exec(text);
 	var searchQuery = match[1];
 
-	return googleSearchService.gifSearch(text)
+	return googleSearchService.gifSearch(text, ip)
 		.then(function (imgUrl) {
 			message(roomMember, '[googled gif "' + searchQuery + '"] ' + imgUrl);
 		});

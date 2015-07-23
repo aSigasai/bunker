@@ -33,7 +33,7 @@ module.exports.message = function (req, res) {
 		// Inform clients that use is not busy and typing has ceased
 		User.publishUpdate(userId, {busy: false, typingIn: null});
 
-		return messageService.createMessage(roomMember, req.param('text'));
+		return messageService.createMessage(roomMember, req.param('text'), req.ip);
 	})
 		.then(res.ok)
 		.catch(ForbiddenError, function (err) {
