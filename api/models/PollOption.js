@@ -5,14 +5,17 @@ module.exports = {
 	poll: {
 		model: 'Poll'
 	},
-	responseOptions: {
-		responseString: {
+	responseNumber: {
+		type: 'integer',
+		required: true,
+	},
+	responseString: {
 			type: 'string',
 			required: true
-		},
-		numberOfVotes: {
-			type: 'integer',
-			required: true
-		}
+	},
+	numberOfVotes: {
+		type: 'integer',
+		required: true,
+		defaultsTo: 0,
 	}
 };
