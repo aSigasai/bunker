@@ -7,8 +7,8 @@ module.exports = {
 			type: 'string',
 			required: true
 		},
-		responseOptions: {
-			model: 'PollOption'
+		startTime: {
+			type: 'date'
 		}
 	}
 };
