@@ -190,8 +190,8 @@ function buildChallengeResponse(fight) {
 			var challengerNick = challenger.nick;
 
 			var message = [];
-			message.push('@' + opponentNick + ' you have been challenged by @' + challengerNick + ' to a fight!');
-			message.push('Respond using /f ' + challengerNick + ' with 3 round moves (i.e. /f ' + challengerNick + ' h m l (see /help fight for more details)');
+			message.push('@' + challengerNick + ' has challenged @' + opponentNick + ' to a fight!');
+			message.push('Respond using /f ' + challengerNick + ' with 3 round moves, i.e. /f ' + challengerNick + ' h m l (see /help fight for more details)');
 			return {message: ent.encode(message.join('\n'))};
 		});
 }
@@ -331,15 +331,21 @@ function getFatalityEmote() {
 	return _.sample([
 		'baraka1',
 		'baraka2',
+		'cage1',
 		'cage2',
 		'jax1',
 		'jax2',
+		'jax3',
+		'kabal1',
+		'kano1',
+		'kano2',
 		'kitana1',
 		'kitana2',
 		'kunglao1',
 		'kunglao2',
 		'liukang1',
 		'liukang2',
+		'liukang3',
 		'mileena1',
 		'mileena2',
 		'rayden1',
@@ -348,11 +354,18 @@ function getFatalityEmote() {
 		'reptile2',
 		'scorpion1',
 		'scorpion2',
+		'scorpion3',
 		'shangtsung1',
 		'shangtsung2',
 		'shangtsung3',
+		'sheeva1',
+		'sheeva2',
+		'smoke1',
+		'stryker1',
 		'subzero1',
-		'subzero2'
+		'subzero2',
+		'subzero3',
+		'subzero4'
 	]);
 }
 
